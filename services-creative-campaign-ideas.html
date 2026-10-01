@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Creative Campaign Ideas — Design — Reem Dissoky, Digital Marketer.">
+<title>Creative Campaign Ideas — Reem Dissoky</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/case.css">
+<link rel="stylesheet" href="assets/css/service.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav id="main-nav" class="solid" aria-label="Primary">
+  <a href="index.html" class="nav-mark" aria-label="Reem Dissoky, home">
+    <img src="assets/brand/mark.png" alt="" aria-hidden="true" class="nav-mark-img">
+    <span class="nav-name">Reem Dissoky</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Get in touch</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="work.html">Work</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<main id="main">
+
+  <header class="page-header">
+    <div class="container">
+      <a href="services.html" class="back-link">&larr; Back to Services</a>
+      <p class="page-eyebrow">Design</p>
+      <h1 class="page-title">Creative Campaign Ideas</h1>
+    </div>
+  </header>
+
+  <section class="on-light service-detail-body">
+    <div class="container">
+      <p class="service-detail-desc">The concept a campaign is actually built around, not just its execution. Two examples, in the room they were built for:</p>
+      <div class="campaign-examples">
+          <div>
+            <div style="border-radius: 12px; overflow: hidden;">
+              <img src="assets/ffcc/Visualization_render.jpeg" alt="Concept render of the Magnaite Connect wall — a central cloud icon connecting Live Dashboard, Remote Access, and POS Integration on one side, Plate Recognition, AI Alerts, and Delivery Aggregator Intelligence on the other." style="width: 100%; display: block;">
+            </div>
+            <p style="margin-top: 16px; font-size: 15px; color: var(--gray-600); line-height: 1.65;"><strong style="color: var(--black);">The Magnaite Connect wall.</strong> The idea was to make an abstract product — "one system running every branch" — physically legible in three seconds. A single cloud icon sits at the center of the wall, with lines running out to what it actually replaces: a live dashboard, remote access, POS integration on one side; plate recognition, AI alerts, delivery-aggregator intelligence on the other. Anyone walking past reads the whole pitch without a single conversation.</p>
+          </div>
+
+          <div>
+            <div style="border-radius: 12px; overflow: hidden;">
+              <img src="assets/biznex/matchmaking-concept-v2.jpg" alt="The creative process behind 'We Got Your Business Match' — Clarity, Consistency, and Conclusion, applied to a dating-app-inspired matchmaking concept for BiznEX." style="width: 100%; display: block;">
+            </div>
+            <p style="margin-top: 16px; font-size: 15px; color: var(--gray-600); line-height: 1.65;"><strong style="color: var(--black);">Find Your Business Match.</strong> For BiznEX, the problem was never getting brands and investors in the same room — it was matching the right ones fast enough to matter. Borrowing the dating-app mechanic reframed the whole expo as a deliberate pairing process rather than a crowd to wade through, and it carried through signage, content, and on-site experience as one conceit, not a slogan bolted onto separate assets.</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 32px; font-size: 14px; color: var(--gray-600); line-height: 1.7;">
+          <strong style="color: var(--black);">More concept work</strong> — eLiver ("eLiver can deliver, even a dot" — a delivery brand built on the emotion of getting a package, not its logistics), Global Medical City (a healthcare brand positioned on the blink of relief a patient feels waking up well), Cairo Dental Arch (a dental exhibition's identity built from an architectural gateway and a dental term, at once), and more — see the full list on the <a href="work.html#more-work" class="text-link" style="color: var(--blue);">Work page</a>.
+        </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-lockup">
+      <img src="assets/brand/mark.png" alt="">
+      <div class="footer-lockup-text">
+        <div class="footer-lockup-name">Reem Dissoky</div>
+        <div class="footer-lockup-role">Digital Marketer</div>
+      </div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="work.html">Work</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen);
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
+
+</body>
+</html>

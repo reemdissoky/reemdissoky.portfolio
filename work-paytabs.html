@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Paytabs — Creative Campaign Concept · Cairo, Egypt · <em>Proposed — not implemented</em>">
+<title>Paytabs — Reem Dissoky</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/case.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav id="main-nav" class="solid" aria-label="Primary">
+  <a href="index.html" class="nav-mark" aria-label="Reem Dissoky, home">
+    <img src="assets/brand/mark.png" alt="" aria-hidden="true" class="nav-mark-img">
+    <span class="nav-name">Reem Dissoky</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Get in touch</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="work.html">Work</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<main id="main">
+
+  <header class="page-header">
+    <div class="container">
+      <a href="work.html" class="back-link">&larr; Back to Work</a>
+      <p class="page-eyebrow">Creative Campaign Concept · Cairo, Egypt · <em>Proposed — not implemented</em></p>
+      <h1 class="page-title">Paytabs</h1>
+    </div>
+  </header>
+
+  <section class="on-light project-detail-body">
+    <div class="container">
+      
+      <p class="project-detail-desc">An easy-to-remember slogan for a Dubai-based payments brand entering the Egyptian market, closing the gap between the brand's language and its new audience. Agency-side proposal; not built.</p>
+      
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-lockup">
+      <img src="assets/brand/mark.png" alt="">
+      <div class="footer-lockup-text">
+        <div class="footer-lockup-name">Reem Dissoky</div>
+        <div class="footer-lockup-role">Digital Marketer</div>
+      </div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="work.html">Work</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen);
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
+
+</body>
+</html>

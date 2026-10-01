@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Reem Dissoky — Digital Marketer. Strategy, copywriting, and AI-directed production for MENA brands.">
+<title>Reem Dissoky — Digital Marketer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<style>
+  /* ─── HERO (split identity) ─── */
+  .hero {
+    min-height: 100vh;
+    background: var(--black);
+    color: var(--white);
+    padding: calc(var(--nav-h) + 24px) 40px 72px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  @media (max-width: 640px) { .hero { padding: calc(var(--nav-h) + 16px) 24px 56px; } }
+
+  .hero-split {
+    max-width: var(--container);
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr minmax(260px, 420px) 1fr;
+    align-items: center;
+    gap: 32px;
+  }
+  .hero-role { opacity: 0; transform: translateY(14px); animation: hero-in 0.7s var(--ease) forwards; }
+  .hero-role--left { text-align: right; animation-delay: 0.35s; }
+  .hero-role--right { text-align: left; animation-delay: 0.5s; }
+  .hero-role-name {
+    font-family: var(--serif);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(44px, 6.4vw, 96px);
+    line-height: 0.95;
+    letter-spacing: 0.005em;
+  }
+  .hero-role--left .hero-role-name { color: var(--white); }
+  .hero-role--right .hero-role-name { color: var(--white); }
+  .hero-role-name .tag { color: var(--blue); }
+  .hero-role-desc {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(250,250,250,0.62);
+    max-width: 30ch;
+  }
+  .hero-role--left .hero-role-desc { margin-left: auto; }
+
+  /* portrait: halftone half (left) + real half (right) */
+  .hero-portrait {
+    position: relative;
+    aspect-ratio: 600 / 1002;
+    width: 100%;
+    max-height: 74vh;
+    margin: 0 auto;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 16%, #000 84%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 10%, #000 80%, transparent 100%);
+    -webkit-mask-composite: source-in;
+            mask-image: linear-gradient(to right, transparent 0%, #000 16%, #000 84%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 10%, #000 80%, transparent 100%);
+            mask-composite: intersect;
+  }
+  .hero-portrait img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .hero-portrait .halftone {
+    clip-path: inset(0 50% 0 0);
+    animation: split-in 1.1s var(--ease) 0.2s both;
+  }
+  .hero-portrait::after {
+    content: '';
+    position: absolute; top: 6%; bottom: 6%; left: 50%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(250,250,250,0.55), transparent);
+    animation: seam-in 1.1s var(--ease) 0.2s both;
+  }
+  @keyframes split-in { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 50% 0 0); } }
+  @keyframes seam-in { from { left: 0; opacity: 0; } to { left: 50%; opacity: 1; } }
+  @keyframes hero-in { to { opacity: 1; transform: translateY(0); } }
+
+  .hero-statement {
+    max-width: var(--container);
+    margin: 48px auto 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(250,250,250,0.14);
+    padding-top: 32px;
+    opacity: 0; transform: translateY(14px);
+    animation: hero-in 0.7s var(--ease) 0.7s forwards;
+  }
+  .hero-headline {
+    font-family: var(--serif);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(30px, 3.6vw, 48px);
+    line-height: 1.05;
+    max-width: 24ch;
+  }
+  .hero-sub {
+    margin-top: 14px;
+    font-size: clamp(15px, 1.4vw, 17px);
+    color: rgba(250,250,250,0.7);
+    max-width: 52ch;
+    line-height: 1.6;
+  }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  @media (max-width: 900px) {
+    .hero-split { grid-template-columns: 1fr; gap: 20px; }
+    .hero-role--left, .hero-role--right { text-align: center; }
+    .hero-role-desc, .hero-role--left .hero-role-desc { margin: 10px auto 0; }
+    .hero-portrait { max-width: 340px; max-height: none; order: 0; }
+    .hero-role--left { order: -1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-role, .hero-statement { opacity: 1; transform: none; animation: none; }
+    .hero-portrait .halftone, .hero-portrait::after { animation: none; }
+  }
+
+  /* ─── ABOUT TEASER ─── */
+  .about-teaser .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  @media (max-width: 860px) { .about-teaser .about-grid { grid-template-columns: 1fr; gap: 28px; } }
+
+  .about-body { font-size: 18px; color: var(--gray-600); max-width: 52ch; }
+  .about-teaser .text-link { margin-top: 24px; }
+
+  .about-eyebrow {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.2vw, 28px);
+    letter-spacing: 0.06em;
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+
+  .about-portrait {
+    margin-top: 32px;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--gray-200);
+  }
+  .about-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .about-visual { display: flex; align-items: center; justify-content: center; }
+  .about-visual-hand { width: 100%; max-width: 440px; height: auto; display: block; }
+  @media (max-width: 860px) { .about-visual-hand { max-width: 320px; } }
+
+  /* ─── WORK (home teaser list) ─── */
+  .work-list { margin-top: 56px; display: flex; flex-direction: column; }
+
+  .work-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 32px;
+    padding: 40px 0;
+    border-top: 1px solid rgba(250,250,250,0.14);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.25s;
+  }
+  .work-item:last-child { border-bottom: 1px solid rgba(250,250,250,0.14); }
+  .work-item:hover { background: rgba(255,255,255,0.025); }
+  @media (max-width: 700px) { .work-item { grid-template-columns: 1fr; gap: 12px; } }
+
+  .work-num { font-family: var(--serif); font-size: 22px; font-weight: 500; color: rgba(250,250,250,0.4); }
+
+  .work-main { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; }
+  @media (max-width: 860px) { .work-main { grid-template-columns: 1fr; } }
+
+  .work-cat { font-size: 13px; color: rgba(250,250,250,0.5); margin-bottom: 10px; }
+
+  .work-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.4vw, 42px);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  .work-desc {
+    margin-top: 14px;
+    font-size: 15.5px;
+    color: rgba(250,250,250,0.68);
+    max-width: 62ch;
+    line-height: 1.7;
+  }
+
+  .work-stats { display: flex; gap: 20px; margin-top: 18px; flex-wrap: wrap; }
+  .work-stat { font-size: 13px; color: rgba(250,250,250,0.55); }
+  .work-stat b { font-family: var(--serif); font-size: 15px; color: var(--white); font-weight: 600; margin-right: 4px; }
+
+  .work-metric {
+    font-size: 13px;
+    color: rgba(250,250,250,0.45);
+    white-space: nowrap;
+    border: 1px dashed rgba(250,250,250,0.3);
+    padding: 6px 12px;
+    border-radius: 6px;
+  }
+
+  .work-see-all {
+    margin-top: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(250,250,250,0.4);
+    padding-bottom: 2px;
+  }
+
+  /* ─── SERVICES ─── */
+  .services-categories { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 48px; }
+  @media (max-width: 900px) { .services-categories { grid-template-columns: 1fr; gap: 48px 0; } }
+
+  .service-cat-num { font-family: var(--serif); font-size: 20px; color: var(--blue); }
+  .service-cat-title { font-family: var(--serif); font-size: clamp(28px, 2.8vw, 36px); line-height: 1.05; font-weight: 600; margin-top: 8px; margin-bottom: 28px; }
+
+  .service-sub-item { padding: 18px 0; border-top: 1px solid var(--gray-200); }
+  .services-categories > div:not(:last-child) .service-sub-item:last-child { border-bottom: 1px solid var(--gray-200); }
+  @media (max-width: 900px) {
+    .services-categories > div .service-sub-item:last-child { border-bottom: 1px solid var(--gray-200); }
+  }
+
+  .service-sub-name { font-size: 15px; font-weight: 600; }
+  .service-sub-desc { margin-top: 6px; font-size: 13.5px; color: var(--gray-600); line-height: 1.6; }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
+
+  .testimonial-card { border-left: 2px solid var(--blue); padding: 4px 0 4px 24px; }
+  .testimonial-text { font-size: 15.5px; line-height: 1.7; color: rgba(250,250,250,0.85); }
+  .testimonial-author { margin-top: 20px; font-size: 13.5px; }
+  .author-name { font-weight: 600; color: var(--white); }
+  .author-title { color: rgba(250,250,250,0.5); margin-top: 2px; }
+
+  /* ─── CONTACT ─── */
+  .contact-inner { display: flex; flex-direction: column; align-items: flex-start; }
+  .contact-email {
+    margin-top: 32px;
+    font-family: var(--serif);
+    font-size: clamp(28px, 4.2vw, 48px);
+    font-weight: 400;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 2px solid var(--blue);
+    padding-bottom: 4px;
+  }
+  .contact-body { margin-top: 18px; font-size: 16px; color: var(--gray-600); max-width: 50ch; }
+</style>
+</head>
+<body>
+
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav id="main-nav" aria-label="Primary">
+  <a href="index.html" class="nav-mark" aria-label="Reem Dissoky, home">
+    <img src="assets/brand/mark.png" alt="" aria-hidden="true" class="nav-mark-img">
+    <span class="nav-name">Reem Dissoky</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in touch</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="work.html">Work</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="hero-split">
+      <div class="hero-role hero-role--left">
+        <p class="hero-role-name">Creative<br>Marketer</p>
+        <p class="hero-role-desc">Concepts, campaigns, and content — written, shot, and directed by me.</p>
+      </div>
+      <div class="hero-portrait">
+        <img src="assets/about/hero-real.jpg" alt="Reem Dissoky behind a cinema camera rig, filming on the event floor at FFCC KSA 2026." width="600" height="1002" fetchpriority="high">
+        <img src="assets/about/hero-halftone.jpg" alt="" aria-hidden="true" class="halftone" width="600" height="1002">
+      </div>
+      <div class="hero-role hero-role--right">
+        <p class="hero-role-name"><span class="tag">&lt;</span>Strategist<span class="tag">&gt;</span></p>
+        <p class="hero-role-desc">Deciding which bets are worth making — then proving them in the numbers.</p>
+      </div>
+    </div>
+    <div class="hero-statement">
+      <div>
+        <h1 class="hero-headline">I run marketing the way most people assume needs a department.</h1>
+        <p class="hero-sub">Strategy, design, and execution — held by one person. Seven years across Egypt, Saudi Arabia, UAE, and Kuwait.</p>
+      </div>
+      <div class="hero-ctas">
+        <a href="work.html" class="btn-primary">See the work</a>
+        <a href="#contact" class="btn-ghost">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-teaser on-light" id="about">
+    <div class="container about-grid">
+      <div>
+        <p class="about-eyebrow">Why me?</p>
+        <h2 class="section-heading">Strategist first. Builder always.</h2>
+        <p class="about-body">I don't split strategist from doer. I decide which bets are worth making, then build the thing myself — brand presence, campaigns, physical activations, the words that carry them. Where a brief needs more hands than I have, I direct a network of specialists and AI-built tools to get there — without losing the thread of a single point of view.</p>
+        <a href="about.html" class="text-link">More about me</a>
+        <div class="about-portrait">
+          <img src="assets/about/reem.jpg" alt="Reem Dissoky, on stage at FFCC KSA 2026.">
+        </div>
+      </div>
+      <div class="about-visual">
+        <img src="assets/about/hand-eye-why.png" alt="Reem's raised hand in black and white, with a blue-and-black eye glyph over the palm and a small sailboat tattoo on the wrist." class="about-visual-hand" width="720" height="912" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="work on-dark" id="work">
+    <div class="container">
+      <h2 class="section-heading">Selected work</h2>
+
+      <div class="work-list">
+
+        <a href="work-magnaite.html" class="work-item">
+          <span class="work-num">01</span>
+          <div>
+            <div class="work-main">
+              <div>
+                <p class="work-cat">Exhibitions · Riyadh, Saudi Arabia · 2026</p>
+                <h3 class="work-title">The audience bet that became a stage signing</h3>
+              </div>
+            </div>
+            <p class="work-desc">Recommended Magnaite's participation in FFCC KSA on one specific audience thesis, then owned the exhibition presence end to end — booth concept, installation, on-screen content, and running the floor solo for the full event. The bet closed with Magnaite signing Drive Coffee on stage.</p>
+            <div class="work-stats">
+              <span class="work-stat"><b>2,000+</b>event visitors</span>
+              <span class="work-stat"><b>600+</b>booth registrations</span>
+              <span class="work-stat"><b>70%</b>qualified as real leads</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="work-biznex.html" class="work-item">
+          <span class="work-num">02</span>
+          <div>
+            <div class="work-main">
+              <div>
+                <p class="work-cat">Events · Cairo, Egypt</p>
+                <h3 class="work-title">Find Your Business Match</h3>
+              </div>
+            </div>
+            <p class="work-desc">A B2B investor-brand matchmaking activation for BiznEX's annual MENA expo — dating-app mechanics applied to serious capital. Full campaign management and content production, on-ground and digital, leading a small team from concept through execution.</p>
+          </div>
+        </a>
+
+        <a href="work-goot.html" class="work-item">
+          <span class="work-num">03</span>
+          <div>
+            <div class="work-main">
+              <div>
+                <p class="work-cat">Hospitality · Riyadh, Saudi Arabia</p>
+                <h3 class="work-title">A 3% conversion rate, and the chain of small gaps behind it</h3>
+              </div>
+            </div>
+            <p class="work-desc">Built Goot Resorts' presence from zero under one hard rule — no music, anywhere — then chased a stuck conversion number past the CRM, into sales calls, and all the way to a site visit in Riyadh to find what the data alone couldn't show.</p>
+            <div class="work-stats">
+              <span class="work-stat"><b>65.6K</b>Instagram followers</span>
+              <span class="work-stat"><b>+80%</b>growth in 9 months</span>
+              <span class="work-stat"><b>3%→20%</b>conversion, 6 months</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <a href="work.html" class="work-see-all">See all work</a>
+    </div>
+  </section>
+
+  <section class="services on-light" id="services">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
+        <h2 class="section-heading">How I work</h2>
+        <a href="services.html" class="text-link">See all services</a>
+      </div>
+
+      <div class="services-categories">
+        <div>
+          <span class="service-cat-num">01</span>
+          <h3 class="service-cat-title">Strategy</h3>
+
+          <div class="service-sub-item">
+            <p class="service-sub-name">Brand Communication</p>
+            <p class="service-sub-desc">Positioning and messaging that gives a brand a consistent point of view across every channel it shows up in.</p>
+          </div>
+          <div class="service-sub-item">
+            <p class="service-sub-name">Employer Branding</p>
+            <p class="service-sub-desc">Making a company's pitch to talent as deliberate as its pitch to customers.</p>
+          </div>
+          <div class="service-sub-item">
+            <p class="service-sub-name">Social Media</p>
+            <p class="service-sub-desc">Organic strategy and content, plus paid distribution across Meta, Google, and LinkedIn Ads.</p>
+            <a href="services-social-media.html" class="text-link" style="margin-top: 10px; font-size: 13px;">See the posts and videography — real work, linked</a>
+          </div>
+          <div class="service-sub-item">
+            <p class="service-sub-name">Copywriting — English &amp; Arabic</p>
+            <p class="service-sub-desc">Words that carry a concept, in the language the audience actually reads in.</p>
+          </div>
+        </div>
+
+        <div>
+          <span class="service-cat-num">02</span>
+          <h3 class="service-cat-title">Design</h3>
+
+          <div class="service-sub-item">
+            <p class="service-sub-name">Creative Campaign Ideas</p>
+            <p class="service-sub-desc">The concept a campaign is actually built around, not just its execution.</p>
+          </div>
+          <div class="service-sub-item">
+            <p class="service-sub-name">Web Design</p>
+            <p class="service-sub-desc">Structure and interface that make a site feel like an extension of the strategy behind it.</p>
+          </div>
+        </div>
+
+        <div>
+          <span class="service-cat-num">03</span>
+          <h3 class="service-cat-title">Intelligence &amp; Optimization</h3>
+
+          <div class="service-sub-item">
+            <p class="service-sub-name">SEO</p>
+            <p class="service-sub-desc">Structure and content built to be found, not just to look finished.</p>
+            <a href="work-magnaite.html#magnaite-digital" class="text-link" style="margin-top: 10px; font-size: 13px;">See the proof — Magnaite's site &amp; foundation, built from zero</a>
+          </div>
+          <div class="service-sub-item">
+            <p class="service-sub-name">GEO</p>
+            <p class="service-sub-desc">Positioning a brand to be surfaced correctly by AI search and assistants, not just traditional search engines.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials on-dark">
+    <div class="container">
+      <h2 class="section-heading">From the people I've worked with</h2>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Reem was a devoted, motivated, professional, hard-working and creative person in our company. Her performance was proven to be among the most effective in our organisation — we are proud to have had such a dedicated team member."</p>
+          <div class="testimonial-author">
+            <p class="author-name">Sherif Rostom</p>
+            <p class="author-title">HR &amp; Board Member, BiznEX Holding</p>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Reem is a dedicated and professional team player — optimistic, engaging, and easy to get along with. I was impressed by her work ethic and communication skills. She always shows her willingness to go the extra mile, and that's how we consistently exceeded expectations."</p>
+          <div class="testimonial-author">
+            <p class="author-name">Radwa Ehab</p>
+            <p class="author-title">Senior Sales Consultant</p>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"A committed, creative, passionate, and professional individual. Reem brings genuine investment to everything she works on — the quality speaks for itself."</p>
+          <div class="testimonial-author">
+            <p class="author-name">Mohamed Saeed</p>
+            <p class="author-title">Finance Account Manager</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact on-light" id="contact">
+    <div class="container contact-inner">
+      <h2 class="section-heading">Let's talk</h2>
+      <p class="contact-body">Have a brief, a role, or just want to see if it's a fit — reach out directly.</p>
+      <a href="mailto:reem.awad9797@gmail.com" class="contact-email">reem.awad9797@gmail.com</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-lockup">
+      <img src="assets/brand/mark.png" alt="">
+      <div class="footer-lockup-text">
+        <div class="footer-lockup-name">Reem Dissoky</div>
+        <div class="footer-lockup-role">Digital Marketer</div>
+      </div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="work.html">Work</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const onScroll = () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen);
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
+
+</body>
+</html>

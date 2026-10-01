@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="SEO — Intelligence & Optimization — Reem Dissoky, Digital Marketer.">
+<title>SEO — Reem Dissoky</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/case.css">
+<link rel="stylesheet" href="assets/css/service.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav id="main-nav" class="solid" aria-label="Primary">
+  <a href="index.html" class="nav-mark" aria-label="Reem Dissoky, home">
+    <img src="assets/brand/mark.png" alt="" aria-hidden="true" class="nav-mark-img">
+    <span class="nav-name">Reem Dissoky</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Get in touch</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="work.html">Work</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<main id="main">
+
+  <header class="page-header">
+    <div class="container">
+      <a href="services.html" class="back-link">&larr; Back to Services</a>
+      <p class="page-eyebrow">Intelligence & Optimization</p>
+      <h1 class="page-title">SEO</h1>
+    </div>
+  </header>
+
+  <section class="on-light service-detail-body">
+    <div class="container">
+      <p class="service-detail-desc">Structure and content built to be found, not just to look finished.</p><p class="service-detail-desc">Four things, together: technical foundations — site architecture, speed, crawlability — that let a site actually get indexed properly in the first place; content and keyword strategy built around what the audience is actually searching, not what sounds impressive; local and multilingual SEO, treating English and Arabic content as two real audiences instead of one translated into the other; and regular audits, because a site optimized once and never checked again is already behind. Magnaite's website was built from scratch with all four in place from day one, not bolted on after.</p>
+      
+      <p style="margin-top: 28px; display: flex; gap: 24px; flex-wrap: wrap;"><a href="work-magnaite.html#magnaite-digital" class="text-link">See the proof — Magnaite's site built from zero</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-lockup">
+      <img src="assets/brand/mark.png" alt="">
+      <div class="footer-lockup-text">
+        <div class="footer-lockup-name">Reem Dissoky</div>
+        <div class="footer-lockup-role">Digital Marketer</div>
+      </div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="work.html">Work</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen);
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
+
+</body>
+</html>
