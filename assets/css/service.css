@@ -1,0 +1,72 @@
+/* ============================================
+   SERVICES — index + individual service pages
+   ============================================ */
+
+.cat-index { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 36px; }
+.cat-index a {
+  font-size: 14px; font-weight: 500; color: rgba(250,250,250,0.6);
+  text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.cat-index a:hover { color: var(--white); border-color: var(--white); }
+
+.cat-section { scroll-margin-top: var(--nav-h); padding: 88px 0; }
+.cat-num { font-family: var(--serif); font-size: 20px; color: var(--blue); }
+.cat-title { font-family: var(--serif); font-size: clamp(38px, 5.2vw, 62px); line-height: 1.05; font-weight: 400; text-transform: uppercase; margin-top: 10px; margin-bottom: 40px; }
+
+/* Index cards, grouped by category */
+.service-card-list { display: flex; flex-direction: column; }
+.service-card {
+  display: block; text-decoration: none; color: inherit;
+  padding: 28px 0; border-top: 1px solid var(--gray-200);
+  transition: opacity 0.2s;
+}
+.on-dark .service-card { border-top: 1px solid rgba(250,250,250,0.14); }
+.service-card:last-child { border-bottom: 1px solid var(--gray-200); }
+.on-dark .service-card:last-child { border-bottom: 1px solid rgba(250,250,250,0.14); }
+.service-card:hover { opacity: 0.7; }
+.service-card-name { font-family: var(--serif); font-size: 28px; line-height: 1.1; font-weight: 600; }
+.service-card-desc { margin-top: 6px; font-size: 14.5px; color: var(--gray-600); max-width: 60ch; line-height: 1.6; }
+.on-dark .service-card-desc { color: rgba(250,250,250,0.65); }
+
+/* Detail page body */
+.service-detail-body { padding: 56px 0 88px; }
+.service-detail-desc { font-size: 18px; color: var(--gray-600); max-width: 62ch; line-height: 1.75; }
+.service-detail-desc + .service-detail-desc { margin-top: 20px; }
+
+/* Post preview gallery (Social Media) */
+.post-preview-grid { margin-top: 36px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 860px) { .post-preview-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .post-preview-grid { grid-template-columns: 1fr; } }
+
+.post-card {
+  display: block; text-decoration: none; color: inherit;
+  border: 1px solid var(--gray-200); border-radius: 12px; overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.post-card:hover { border-color: var(--blue); transform: translateY(-2px); }
+.post-card-media { aspect-ratio: 4 / 3; background: var(--gray-100, #f5f5f5); position: relative; overflow: hidden; }
+.post-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.post-card-platform {
+  position: absolute; top: 10px; left: 10px;
+  background: rgba(17,17,17,0.85); color: var(--white);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
+  padding: 4px 10px; border-radius: 999px;
+}
+.post-card-body { padding: 14px 16px; }
+.post-card-caption { font-size: 14px; line-height: 1.5; }
+.post-card-link { margin-top: 8px; font-size: 12.5px; color: var(--blue); font-weight: 500; }
+
+/* Campaign examples (Creative Campaign Ideas) */
+.campaign-examples { margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+@media (max-width: 700px) { .campaign-examples { grid-template-columns: 1fr; } }
+
+/* Videography (Social Media) */
+.service-sub-heading { font-family: var(--serif); font-weight: 400; text-transform: uppercase; font-size: clamp(34px, 4.4vw, 54px); line-height: 1.05; margin-top: 88px; }
+.service-sub-heading + .service-detail-desc { margin-top: 16px; }
+.video-grid { margin-top: 36px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; max-width: 1000px; }
+@media (max-width: 860px) { .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .video-grid { grid-template-columns: 1fr; max-width: 360px; } }
+.video-card video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; display: block; border-radius: 12px; background: var(--black); }
+.video-card-label { margin-top: 14px; font-family: var(--serif); text-transform: uppercase; font-size: 24px; line-height: 1.1; }
+.video-card-caption { margin-top: 6px; font-size: 14px; line-height: 1.55; color: var(--gray-600); }
