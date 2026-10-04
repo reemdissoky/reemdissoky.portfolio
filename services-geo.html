@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="description" content="GEO — Intelligence & Optimization — Reem Dissoky, Digital Marketer.">
 <title>GEO — Reem Dissoky</title>
+<meta name="theme-color" content="#111111">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GEO — Reem Dissoky">
+<meta property="og:description" content="GEO — Intelligence & Optimization — Reem Dissoky, Digital Marketer.">
+<meta property="og:url" content="https://reemdissoky.github.io/reemdissoky.portfolio/services-geo.html">
+<meta property="og:image" content="https://reemdissoky.github.io/reemdissoky.portfolio/assets/about/hero-real.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://reemdissoky.github.io/reemdissoky.portfolio/services-geo.html">
+<link rel="icon" type="image/png" href="assets/brand/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -22,6 +31,7 @@
     <span class="nav-name">Reem Dissoky</span>
   </a>
   <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
     <li><a href="work.html">Work</a></li>
     <li><a href="services.html" class="active">Services</a></li>
     <li><a href="about.html">About</a></li>
@@ -33,6 +43,7 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
   <a href="work.html">Work</a>
   <a href="services.html">Services</a>
   <a href="about.html">About</a>
@@ -69,31 +80,21 @@
       </div>
     </div>
     <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
       <li><a href="work.html">Work</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="index.html#contact">Contact</a></li>
     </ul>
+    <nav class="footer-socials" aria-label="Social media">
+      <a href="https://www.instagram.com/reem.dissoky/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+      <a href="https://www.tiktok.com/@reem_dissoky" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
+      <a href="https://www.youtube.com/@ReemDissoky" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+      <a href="https://www.linkedin.com/in/reem-dissoky/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    </nav>
   </div>
 </footer>
 
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  menuToggle.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    menuToggle.classList.toggle('open', isOpen);
-    menuToggle.setAttribute('aria-expanded', isOpen);
-    menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-  });
-  mobileMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      menuToggle.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', false);
-    });
-  });
-</script>
-
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>
