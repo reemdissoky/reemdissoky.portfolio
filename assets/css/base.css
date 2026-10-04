@@ -64,20 +64,20 @@ img { max-width: 100%; display: block; }
 @media (max-width: 640px) { .container { padding: 0 24px; } }
 
 /* ─── NAV ─── */
-nav {
+#main-nav {
   position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 40px; z-index: 100;
   transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
-@media (max-width: 640px) { nav { padding: 0 24px; } }
+@media (max-width: 640px) { #main-nav { padding: 0 24px; } }
 
-nav.scrolled {
+#main-nav.scrolled {
   background: rgba(17, 17, 17, 0.94);
   backdrop-filter: blur(10px);
   box-shadow: 0 1px 0 rgba(255,255,255,0.08);
 }
-nav.solid { background: var(--black); }
+#main-nav.solid { background: var(--black); }
 
 .nav-mark { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .nav-mark img.nav-mark-img { width: 30px; height: 30px; object-fit: contain; }
