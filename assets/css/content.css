@@ -1,0 +1,59 @@
+/* ============================================
+   CONTENT — landing pages, How I work, Insights
+   ============================================ */
+.page-dek { margin-top: 20px; font-size: clamp(16px, 1.6vw, 19px); color: rgba(250,250,250,0.72); max-width: 60ch; line-height: 1.6; }
+.byline { margin-top: 22px; font-size: 13.5px; color: rgba(250,250,250,0.55); }
+.byline a { color: rgba(250,250,250,0.8); }
+
+.prose { max-width: 68ch; }
+.prose > * + * { margin-top: 18px; }
+.prose h2 { font-family: var(--serif); font-weight: 400; text-transform: uppercase; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.05; margin-top: 64px; }
+.prose h2:first-child { margin-top: 0; }
+.prose h3 { font-size: 19px; font-weight: 600; margin-top: 36px; }
+.prose p, .prose li { font-size: 17.5px; line-height: 1.75; color: var(--gray-600); }
+.on-dark .prose p, .on-dark .prose li { color: rgba(250,250,250,0.75); }
+.prose ul, .prose ol { padding-left: 22px; }
+.prose li + li { margin-top: 10px; }
+.prose li strong, .prose p strong { color: var(--black); font-weight: 600; }
+.on-dark .prose li strong, .on-dark .prose p strong { color: var(--white); }
+.prose a { color: var(--blue); text-underline-offset: 3px; }
+.on-dark .prose a { color: #8fb1ff; }
+.lead-answer { font-size: 19px !important; color: var(--black) !important; border-left: 2px solid var(--blue); padding-left: 18px; }
+
+.fit-grid { margin-top: 32px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+@media (max-width: 760px) { .fit-grid { grid-template-columns: 1fr; } }
+.fit-card { border: 1px solid var(--gray-200); border-radius: 14px; padding: 28px; }
+.on-dark .fit-card { border-color: rgba(250,250,250,0.14); }
+.fit-card h3 { font-family: var(--serif); font-weight: 400; text-transform: uppercase; font-size: 28px; line-height: 1.05; margin: 0 0 12px; }
+
+.proof-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 28px; }
+@media (max-width: 760px) { .proof-row { grid-template-columns: 1fr; } }
+.proof { border-top: 2px solid var(--blue); padding-top: 14px; }
+.proof-num { font-family: var(--serif); font-size: 40px; line-height: 1; }
+.proof-label { margin-top: 6px; font-size: 14px; color: var(--gray-600); }
+.on-dark .proof-label { color: rgba(250,250,250,0.6); }
+
+.faq { margin-top: 28px; max-width: 76ch; }
+.faq details { border-top: 1px solid var(--gray-200); padding: 20px 0; }
+.faq details:last-child { border-bottom: 1px solid var(--gray-200); }
+.faq summary { cursor: pointer; font-size: 18px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; color: var(--blue); font-weight: 400; font-size: 22px; line-height: 1; }
+.faq details[open] summary::after { content: '–'; }
+.faq summary h3 { font: inherit; margin: 0; }
+.faq .faq-a { margin-top: 12px; font-size: 16.5px; line-height: 1.75; color: var(--gray-600); }
+.faq .faq-a a { color: var(--blue); }
+
+.post-list { margin-top: 40px; display: flex; flex-direction: column; }
+.post-item { display: block; padding: 32px 0; border-top: 1px solid var(--gray-200); text-decoration: none; color: inherit; }
+.post-item:last-child { border-bottom: 1px solid var(--gray-200); }
+.post-item:hover .post-title { color: var(--blue); }
+.post-meta { font-size: 13px; color: var(--gray-600); }
+.post-title { font-family: var(--serif); font-weight: 400; text-transform: uppercase; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.05; margin-top: 8px; transition: color 0.2s; }
+.post-excerpt { margin-top: 10px; font-size: 16px; color: var(--gray-600); max-width: 64ch; line-height: 1.65; }
+
+.cta-band { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.cta-band p { font-family: var(--serif); text-transform: uppercase; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.05; max-width: 22ch; }
+
+/* Placeholder Reem must confirm before merge — visible on purpose */
+.confirm { background: #fff3b0; color: #5a4500; padding: 0 4px; border-radius: 3px; font-size: 0.92em; }

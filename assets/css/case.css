@@ -113,3 +113,15 @@ a.grid-tier-item:hover { background: #fafafa; }
 /* Detail page for a single grid-tier project */
 .project-detail-body { padding: 56px 0 88px; }
 .project-detail-desc { font-size: 18px; line-height: 1.75; color: var(--gray-600); max-width: 62ch; margin-top: 24px; }
+
+/* Work filter (industries) */
+.work-filter { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+.work-filter a { font-size: 13.5px; color: rgba(250,250,250,0.7); text-decoration: none; border: 1px solid rgba(250,250,250,0.2); border-radius: 999px; padding: 8px 16px; transition: color 0.2s, border-color 0.2s, background 0.2s; }
+.work-filter a:hover { color: var(--white); border-color: rgba(250,250,250,0.5); }
+.work-filter a.is-active { background: var(--white); color: var(--black); border-color: var(--white); }
+[data-tags][hidden], .work-index-section[hidden] { display: none !important; }
+/* Grid without grey fill in empty cells (odd counts, filtered views) */
+.grid-tier-list { background: none; gap: 0; }
+.grid-tier-list > .grid-tier-item { outline: 1px solid var(--gray-200); outline-offset: -0.5px; }
+.case-hero-img--fit { height: clamp(260px, 42vw, 520px); }
+.case-hero-img--fit img { height: 100%; }
